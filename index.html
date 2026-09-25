@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>不存在的壹壹貳陸</title>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#090e19;color:#f8efd5;font-family:system-ui,sans-serif}
+    body{display:grid;place-items:center;overflow:hidden}#frame{position:relative;width:min(100vw,177.7778vh);aspect-ratio:16/9;background:#101624}
+    canvas{display:block;width:100%;height:100%;outline:none}#loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#101624;text-align:center;padding:24px}
+    h1{font-size:clamp(24px,4vw,48px);letter-spacing:.14em;font-weight:650}p{color:#b4c8c7;font-size:16px}progress{width:min(60%,360px);height:8px;accent-color:#e8d9aa}
+    #error{color:#ffb6b3;max-width:700px;line-height:1.7;white-space:pre-wrap}#fullscreen{position:absolute;right:12px;bottom:12px;background:#101624aa;color:#f8efd5;border:1px solid #89979770;padding:6px 10px;cursor:pointer;z-index:2}#fullscreen[hidden]{display:none}
+  </style>
+</head>
+<body>
+  <main id="frame">
+    <canvas id="unity-canvas" width="1280" height="720" tabindex="0" aria-label="不存在的壹壹貳陸遊戲"></canvas>
+    <div id="loading"><h1>不存在的壹壹貳陸</h1><p id="status">正在找回那一天……</p><progress id="progress" value="0" max="1"></progress><p id="error" hidden></p></div>
+    <button id="fullscreen" hidden aria-label="全螢幕">全螢幕</button>
+  </main>
+  <script>
+    const canvas=document.getElementById('unity-canvas');
+    const config={dataUrl:'Build/Web.data.unityweb',frameworkUrl:'Build/Web.framework.js.unityweb',codeUrl:'Build/Web.wasm.unityweb',streamingAssetsUrl:'StreamingAssets',companyName:"DefaultCompany",productName:"不存在的壹壹貳陸",productVersion:"1.0",devicePixelRatio:Math.min(window.devicePixelRatio||1,2)};
+    const fail=error=>{document.getElementById('status').textContent='載入暫時失敗';const label=document.getElementById('error');label.hidden=false;label.textContent='請重新整理頁面後再試一次。\n'+String(error);};
+    const loader=document.createElement('script');loader.src='Build/Web.loader.js';loader.onerror=()=>fail('找不到遊戲載入檔。');
+    loader.onload=()=>createUnityInstance(canvas,config,p=>{document.getElementById('progress').value=p;}).then(instance=>{document.getElementById('loading').style.display='none';canvas.focus();const full=document.getElementById('fullscreen');full.hidden=false;full.onclick=()=>instance.SetFullscreen(1);}).catch(fail);
+    document.body.appendChild(loader);
+  </script>
+</body>
+</html>
