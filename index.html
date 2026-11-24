@@ -4,11 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>不存在的壹壹貳陸</title>
+  <link rel="preload" href="LoadingRound.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    @font-face {
+      font-family:"Birthday Round";
+      src:url("LoadingRound.woff2") format("woff2");
+      font-weight:400;
+      font-style:normal;
+      font-display:swap;
+    }
     *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#090e19;color:#f8efd5;font-family:system-ui,sans-serif}
     body{display:grid;place-items:center;overflow:hidden}#frame{position:relative;width:min(100vw,177.7778vh);aspect-ratio:16/9;background:#101624}
-    canvas{display:block;width:100%;height:100%;outline:none}#loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#101624;text-align:center;padding:24px}
-    h1{font-size:clamp(24px,4vw,48px);letter-spacing:.14em;font-weight:650}p{color:#b4c8c7;font-size:16px}progress{width:min(60%,360px);height:8px;accent-color:#e8d9aa}
+    canvas{display:block;width:100%;height:100%;outline:none}#loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#101624;text-align:center;padding:24px;font-family:"Birthday Round",system-ui,sans-serif}
+    h1{font-size:clamp(24px,4vw,48px);letter-spacing:.14em;font-weight:400}p{color:#b4c8c7;font-size:16px}progress{width:min(60%,360px);height:8px;accent-color:#e8d9aa}
     #error{color:#ffb6b3;max-width:700px;line-height:1.7;white-space:pre-wrap}#fullscreen{position:absolute;right:12px;bottom:12px;background:#101624aa;color:#f8efd5;border:1px solid #89979770;padding:6px 10px;cursor:pointer;z-index:2}#fullscreen[hidden]{display:none}
   </style>
 </head>
