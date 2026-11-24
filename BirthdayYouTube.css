@@ -1,0 +1,50 @@
+.birthday-youtube {
+  position: absolute;
+  z-index: 3;
+  top: var(--video-top);
+  left: var(--video-left);
+  width: var(--video-width);
+  height: var(--video-height);
+}
+.birthday-youtube.preloading {
+  top: 0;
+  left: 0;
+  width: min(356px, 100%);
+  height: 200px;
+  opacity: 0;
+  pointer-events: none;
+}
+.birthday-youtube[hidden], .birthday-youtube [hidden] { display: none; }
+.birthday-youtube-card, .birthday-youtube-player { width: 100%; height: 100%; }
+.birthday-youtube iframe { display: block; width: 100%; height: 100%; border: 0; background: #191821; }
+.birthday-youtube.compact {
+  position: fixed;
+  inset: 0;
+  width: auto;
+  height: auto;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: #1f1b27e5;
+}
+.birthday-youtube.compact[hidden] { display: none; }
+.compact .birthday-youtube-card {
+  width: min(100%, 670px);
+  height: auto;
+  padding: 10px;
+  background: #fff9eb;
+  border-radius: 16px;
+  text-align: center;
+}
+.compact .birthday-youtube-player { height: auto; min-height: 200px; aspect-ratio: 16 / 9; display: grid; }
+.birthday-youtube-continue {
+  min-width: 116px;
+  min-height: 44px;
+  margin-top: 10px;
+  border: 1px solid #f7fffa;
+  border-radius: 999px;
+  background: #a8dcc9;
+  color: #29322f;
+  font: 600 16px system-ui, sans-serif;
+  cursor: pointer;
+}
