@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>不存在的壹壹貳陸</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preload" href="LoadingRound.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="BirthdayYouTube.css">
   <style>
@@ -31,9 +32,9 @@
   <script src="BirthdayYouTube.js"></script>
   <script>
     const canvas=document.getElementById('unity-canvas');
-    const config={dataUrl:'Build/PeraserGame-Web-QA-20261126-NoBars.data.unityweb',frameworkUrl:'Build/PeraserGame-Web-QA-20261126-NoBars.framework.js.unityweb',codeUrl:'Build/PeraserGame-Web-QA-20261126-NoBars.wasm.unityweb',streamingAssetsUrl:'StreamingAssets',companyName:"DefaultCompany",productName:"不存在的壹壹貳陸",productVersion:"1.0",devicePixelRatio:Math.min(window.devicePixelRatio||1,2)};
+    const config={dataUrl:'Build/PeraserGame-Web-QA-20261126-Return.data.unityweb',frameworkUrl:'Build/PeraserGame-Web-QA-20261126-Return.framework.js.unityweb',codeUrl:'Build/PeraserGame-Web-QA-20261126-Return.wasm.unityweb',streamingAssetsUrl:'StreamingAssets',companyName:"DefaultCompany",productName:"不存在的壹壹貳陸",productVersion:"1.0",devicePixelRatio:Math.min(window.devicePixelRatio||1,2)};
     const fail=error=>{document.getElementById('status').textContent='載入暫時失敗';const label=document.getElementById('error');label.hidden=false;label.textContent='請重新整理頁面後再試一次。\n'+String(error);};
-    const loader=document.createElement('script');loader.src='Build/PeraserGame-Web-QA-20261126-NoBars.loader.js';loader.onerror=()=>fail('找不到遊戲載入檔。');
+    const loader=document.createElement('script');loader.src='Build/PeraserGame-Web-QA-20261126-Return.loader.js';loader.onerror=()=>fail('找不到遊戲載入檔。');
     loader.onload=()=>createUnityInstance(canvas,config,p=>{document.getElementById('progress').value=p;}).then(instance=>{document.getElementById('loading').style.display='none';canvas.focus();}).catch(fail);
     document.body.appendChild(loader);
   </script>
