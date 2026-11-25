@@ -33,9 +33,9 @@
   <script src="BirthdayYouTube.js"></script>
   <script>
     const canvas=document.getElementById('unity-canvas');
-    const config={dataUrl:'Build/PeraserGame-Web-20261125.data.unityweb',frameworkUrl:'Build/PeraserGame-Web-20261125.framework.js.unityweb',codeUrl:'Build/PeraserGame-Web-20261125.wasm.unityweb',streamingAssetsUrl:'StreamingAssets',companyName:"DefaultCompany",productName:"不存在的壹壹貳陸",productVersion:"1.0",devicePixelRatio:Math.min(window.devicePixelRatio||1,2)};
+    const config={dataUrl:'Build/PeraserGame-Web-20261126-Final.data.unityweb',frameworkUrl:'Build/PeraserGame-Web-20261126-Final.framework.js.unityweb',codeUrl:'Build/PeraserGame-Web-20261126-Final.wasm.unityweb',streamingAssetsUrl:'StreamingAssets',companyName:"DefaultCompany",productName:"不存在的壹壹貳陸",productVersion:"1.0",devicePixelRatio:Math.min(window.devicePixelRatio||1,2)};
     const fail=error=>{document.getElementById('status').textContent='載入暫時失敗';const label=document.getElementById('error');label.hidden=false;label.textContent='請重新整理頁面後再試一次。\n'+String(error);};
-    const loader=document.createElement('script');loader.src='Build/PeraserGame-Web-20261125.loader.js';loader.onerror=()=>fail('找不到遊戲載入檔。');
+    const loader=document.createElement('script');loader.src='Build/PeraserGame-Web-20261126-Final.loader.js';loader.onerror=()=>fail('找不到遊戲載入檔。');
     loader.onload=()=>createUnityInstance(canvas,config,p=>{document.getElementById('progress').value=p;}).then(instance=>{document.getElementById('loading').style.display='none';canvas.focus();const full=document.getElementById('fullscreen');full.hidden=false;full.onclick=()=>{const shell=document.getElementById('game-shell');if(shell.requestFullscreen)shell.requestFullscreen().catch(()=>{});else instance.SetFullscreen(1);};}).catch(fail);
     document.body.appendChild(loader);
   </script>
